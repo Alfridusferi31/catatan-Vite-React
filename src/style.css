@@ -1,0 +1,133 @@
+body {
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #2e343b;
+  color: #fff;
+  margin: 0;
+  padding: 20px;
+}
+
+.note-app {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.note-search {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-family: inherit;
+  background-color: #394047;
+  border: 1px solid #555;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.note-input input,
+.note-input textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #555;
+  border-radius: 5px;
+  background-color: #394047;
+  color: #fff;
+  font-family: inherit;
+}
+
+.note-input button {
+  padding: 10px 20px;
+  background-color: #00bcd4;
+  color: #2e343b;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
+}
+
+.note-input button:hover {
+  background-color: #00acc1;
+  transform: scale(1.05);
+}
+
+.notes-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+.note-item {
+  background-color: #394047;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  flex: 1 1 calc(25% - 20px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: inherit;
+}
+
+.note-item__title {
+  margin: 0 0 5px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.note-item__createdAt {
+  font-size: 12px;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.note-item__body {
+  font-size: 14px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  color: #eee;
+}
+
+.note-item__action button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-hapus {
+  background-color: #e53935;
+  color: white;
+}
+
+.btn-arsip {
+  background-color: #00bcd4;
+  color: #2e343b;
+  font-weight: bold;
+}
+
+@media (max-width: 1200px) {
+  .note-item {
+    flex: 1 1 calc(33.333% - 20px);
+  }
+}
+
+@media (max-width: 900px) {
+  .note-item {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 600px) {
+  .note-item {
+    flex: 1 1 100%;
+  }
+}
