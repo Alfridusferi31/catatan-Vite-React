@@ -1,133 +1,541 @@
+/* src/style.css */
+
+/* Mengimpor font jika diperlukan, atau pastikan font sudah tersedia */
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap'); */
+
 body {
   font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #2e343b;
-  color: #fff;
+  background-color: #f0f2f5; /* Lebih cerah: Light greyish-blue */
+  color: #333; /* Warna teks lebih gelap untuk kontras */
   margin: 0;
-  padding: 20px;
+  padding: 0; /* Hapus padding body, akan ditangani oleh .app-container */
+  line-height: 1.6; /* Keterbacaan yang lebih baik */
 }
 
-.note-app {
+/* Gaya untuk kontainer aplikasi utama */
+.app-container {
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto; /* Pusatkan kontainer */
+  padding: 20px; /* Tambahkan padding di sini */
+  background-color: #ffffff; /* Latar belakang aplikasi putih */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sedikit bayangan untuk kesan mendalam */
+  min-height: 100vh; /* Pastikan mengisi tinggi viewport */
+  display: flex;
+  flex-direction: column;
 }
 
+/* --- HEADER STYLES --- */
+header {
+  background-color: #4a90e2; /* Warna biru cerah untuk header */
+  color: white;
+  padding: 15px 20px; /* Padding lebih besar */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 5px solid #357abd; /* Border bawah untuk pemisah */
+  margin-bottom: 20px; /* Jarak antara header dan konten utama */
+}
+
+header h1 {
+  margin: 0;
+  font-size: 28px; /* Ukuran font judul lebih besar */
+}
+
+header h1 a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+header h1 a:hover {
+  color: #e0f2f7; /* Sedikit lebih terang saat hover */
+}
+
+/* Gaya Navigasi (Horizontal) */
+.navigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Mengatur item LI secara horizontal */
+  flex-direction: row; /* Pastikan arahnya horizontal */
+  gap: 20px; /* Jarak antar item navigasi */
+}
+
+.navigation a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px; /* Padding untuk link navigasi */
+  display: block; /* Agar padding dan background mengisi area link */
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  font-weight: 500; /* Sedikit lebih tebal */
+}
+
+.navigation a:hover {
+  background-color: #357abd; /* Warna hover yang cocok */
+}
+
+/* --- MAIN CONTENT STYLES --- */
+main {
+  flex-grow: 1; /* Agar konten utama mengisi ruang yang tersedia */
+  padding: 0; /* Padding sudah di .app-container */
+}
+
+h2 {
+  color: #2c3e50; /* Warna judul section lebih gelap */
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* --- NOTE SEARCH STYLES --- */
 .note-search {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
+  padding: 12px 15px; /* Padding lebih besar */
+  margin-bottom: 25px;
   font-size: 16px;
   font-family: inherit;
-  background-color: #394047;
-  border: 1px solid #555;
-  border-radius: 5px;
-  color: #fff;
+  background-color: #f9f9f9; /* Lebih cerah */
+  border: 1px solid #dcdcdc; /* Border lebih terang */
+  border-radius: 8px; /* Radius sedikit lebih besar */
+  color: #333;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08); /* Efek kedalaman ringan */
+}
+
+.note-search::placeholder {
+  color: #999;
+}
+main {
+  flex-grow: 1;
+  padding: 0;
+}
+
+h2 {
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* --- NOTE SEARCH STYLES --- */
+.note-search {
+  width: 100%;
+  padding: 12px 18px; /* Padding lebih proporsional */
+  margin-bottom: 25px; /* Jarak bawah */
+  font-size: 17px; /* Ukuran font sedikit lebih besar */
+  font-family: inherit;
+  background-color: #f9f9f9; /* Latar belakang input lebih terang */
+  border: 1px solid #c2d1e0; /* Warna border yang lebih halus */
+  border-radius: 10px; /* Sudut lebih membulat */
+  color: #333; /* Warna teks input */
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.08); /* Efek kedalaman ringan */
+  outline: none; /* Hapus outline default browser */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transisi untuk fokus */
+}
+
+.note-search::placeholder {
+  color: #a0a0a0; /* Warna placeholder yang lebih jelas */
+}
+
+/* --- NOTE SEARCH STYLES --- */
+.note-search-container {
+  /* Ganti dari .note-search jika Anda mengubah nama kelas di JSX */
+  width: 100%; /* Pastikan kontainer mengambil seluruh lebar yang tersedia */
+  margin-bottom: 25px; /* Jarak bawah */
+}
+
+.note-search-input {
+  /* Kelas baru untuk input pencarian */
+  width: 100%; /* Input akan mengisi 100% dari kontainer .note-search-container */
+  padding: 12px 18px;
+  font-size: 17px;
+  font-family: inherit;
+  background-color: #f9f9f9;
+  border: 1px solid #c2d1e0;
+  border-radius: 10px;
+  color: #333;
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.08);
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box; /* <-- KUNCI: Pastikan padding dan border termasuk dalam width 100% */
+}
+
+.note-search-input::placeholder {
+  color: #a0a0a0;
+}
+
+.note-search-input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.25);
+}
+/* --- NOTE INPUT STYLES --- */
+.note-input {
+  background-color: #f9f9f9; /* Lebih cerah */
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+  border: 1px solid #e0e0e0;
 }
 
 .note-input input,
 .note-input textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #555;
-  border-radius: 5px;
-  background-color: #394047;
-  color: #fff;
+  width: calc(100% - 20px); /* Sesuaikan lebar dengan padding */
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #dcdcdc; /* Border lebih terang */
+  border-radius: 8px;
+  background-color: #ffffff; /* Putih bersih */
+  color: #333;
   font-family: inherit;
+  font-size: 16px;
+  box-sizing: border-box; /* Pastikan padding tidak menambah lebar */
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.note-input textarea {
+  min-height: 120px; /* Tinggi minimum textarea */
+  resize: vertical; /* Izinkan resize vertikal */
+}
+
+.note-input__title__char-limit {
+  text-align: right;
+  font-size: 12px;
+  color: #777;
+  margin-bottom: 5px;
 }
 
 .note-input button {
-  padding: 10px 20px;
-  background-color: #00bcd4;
-  color: #2e343b;
+  padding: 12px 25px; /* Padding lebih besar */
+  background-color: #28a745; /* Warna hijau cerah (success) */
+  color: white; /* Teks putih */
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   font-weight: bold;
+  font-size: 17px;
+  display: block; /* Agar tombol mengisi lebar */
+  width: 100%;
 }
 
 .note-input button:hover {
-  background-color: #00acc1;
-  transform: scale(1.05);
+  background-color: #218838; /* Lebih gelap saat hover */
+  transform: translateY(-2px); /* Sedikit efek angkat */
 }
 
+/* --- NOTES LIST STYLES --- */
 .notes-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 20px; /* Jarak antar kartu catatan */
   justify-content: flex-start;
 }
 
+.notes-list__empty-message {
+  width: 100%;
+  text-align: center;
+  color: #777;
+  font-style: italic;
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+/* --- NOTE ITEM STYLES --- */
 .note-item {
-  background-color: #394047;
-  border-radius: 8px;
-  padding: 15px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  flex: 1 1 calc(25% - 20px);
+  background-color: #ffffff; /* Latar belakang item putih */
+  border-radius: 10px; /* Sudut lebih membulat */
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Bayangan lebih jelas */
+  flex: 1 1 calc(25% - 20px); /* 4 kolom */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   font-family: inherit;
+  border: 1px solid #e0e0e0; /* Border tipis */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.note-item:hover {
+  transform: translateY(-5px); /* Efek angkat saat hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
 .note-item__title {
-  margin: 0 0 5px 0;
-  font-size: 18px;
+  margin: 0 0 8px 0;
+  font-size: 20px;
   font-weight: bold;
-  color: #fff;
+  color: #2c3e50; /* Warna judul lebih gelap */
+}
+
+.note-item__title a {
+  text-decoration: none;
+  color: inherit; /* Inherit warna dari judul */
+  transition: color 0.3s ease;
+}
+
+.note-item__title a:hover {
+  color: #4a90e2; /* Warna biru saat hover */
 }
 
 .note-item__createdAt {
-  font-size: 12px;
-  color: #ccc;
-  margin-bottom: 10px;
+  font-size: 13px;
+  color: #777; /* Warna tanggal lebih lembut */
+  margin-bottom: 12px;
 }
 
 .note-item__body {
-  font-size: 14px;
-  margin-bottom: 10px;
+  font-size: 15px;
+  margin-bottom: 15px;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4; /* Tambah baris yang ditampilkan */
   -webkit-box-orient: vertical;
-  color: #eee;
+  color: #555; /* Warna isi lebih lembut */
+}
+
+.note-item__action {
+  display: flex; /* Untuk menata tombol */
+  gap: 10px; /* Jarak antar tombol */
+  margin-top: auto; /* Dorong action ke bawah jika ada ruang sisa */
 }
 
 .note-item__action button {
-  margin-right: 10px;
-  padding: 5px 10px;
+  flex: 1; /* Tombol mengisi ruang yang sama */
+  padding: 10px 15px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-family: inherit;
+  font-weight: 600; /* Lebih tebal */
+  font-size: 15px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.btn-hapus {
-  background-color: #e53935;
+.note-item__delete-button {
+  background-color: #dc3545; /* Merah cerah */
   color: white;
 }
 
-.btn-arsip {
-  background-color: #00bcd4;
-  color: #2e343b;
+.note-item__delete-button:hover {
+  background-color: #c82333; /* Lebih gelap saat hover */
+  transform: translateY(-2px);
+}
+
+.note-item__archive-button {
+  background-color: #ffc107; /* Kuning cerah */
+  color: #333; /* Teks gelap */
   font-weight: bold;
 }
 
+.note-item__archive-button:hover {
+  background-color: #e0a800; /* Lebih gelap saat hover */
+  transform: translateY(-2px);
+}
+
+/* --- HOMEPAGE / ADDNOTE / ARCHIVE PAGE SPECIFIC STYLES --- */
+.homepage,
+.add-new-page,
+.archive-page {
+  padding: 20px; /* Tambahkan padding di sini untuk konsistensi */
+}
+
+.homepage__action {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.homepage__action .action-button {
+  display: inline-flex; /* Agar tombol floating tetap ditengah */
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  background-color: #007bff; /* Biru cerah untuk tombol aksi */
+  color: white;
+  font-size: 30px;
+  text-decoration: none;
+  border-radius: 50%; /* Bentuk lingkaran */
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+
+.homepage__action .action-button:hover {
+  background-color: #0056b3; /* Lebih gelap saat hover */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.6);
+}
+
+/* --- NOTE DETAIL PAGE STYLES --- */
+.note-detail-page {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin-bottom: 20px;
+  border: 1px solid #e0e0e0;
+}
+
+.note-detail__title {
+  font-size: 32px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.note-detail__createdAt {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.note-detail__body {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.note-detail__action {
+  display: flex;
+  gap: 15px;
+}
+
+.note-detail__action button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  flex: 1; /* Agar tombol mengisi lebar yang sama */
+}
+
+.note-detail__delete-button {
+  background-color: #dc3545; /* Merah cerah */
+  color: white;
+}
+
+.note-detail__delete-button:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}
+
+.note-detail__archive-button {
+  background-color: #ffc107; /* Kuning cerah */
+  color: #333;
+}
+
+.note-detail__archive-button:hover {
+  background-color: #e0a800;
+  transform: translateY(-2px);
+}
+
+/* --- NOT FOUND PAGE STYLES --- */
+.not-found-page {
+  text-align: center;
+  padding: 50px;
+  color: #555;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  margin: 20px;
+}
+
+.not-found-page h2 {
+  font-size: 36px;
+  color: #dc3545;
+  margin-bottom: 15px;
+}
+
+.not-found-page p {
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+.not-found-page a {
+  display: inline-block;
+  padding: 10px 25px;
+  background-color: #007bff;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.not-found-page a:hover {
+  background-color: #0056b3;
+}
+
+/* --- MEDIA QUERIES UNTUK RESPONSIVITAS --- */
+
+/* Tablet & Layar Laptop Kecil */
 @media (max-width: 1200px) {
   .note-item {
-    flex: 1 1 calc(33.333% - 20px);
+    flex: 1 1 calc(33.333% - 20px); /* 3 kolom */
   }
 }
 
+/* Tablet Portrait & Ponsel Landscape */
 @media (max-width: 900px) {
   .note-item {
-    flex: 1 1 calc(50% - 20px);
+    flex: 1 1 calc(50% - 20px); /* 2 kolom */
+  }
+  header {
+    flex-direction: column; /* Header jadi vertikal di layar kecil */
+    padding: 15px 15px;
+  }
+  header h1 {
+    margin-bottom: 10px;
+  }
+  .navigation ul {
+    width: 100%;
+    justify-content: center; /* Pusatkan navigasi */
+    margin-top: 10px;
+  }
+  .app-container {
+    padding: 15px;
   }
 }
 
+/* Ponsel */
 @media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
   .note-item {
-    flex: 1 1 100%;
+    flex: 1 1 100%; /* 1 kolom penuh */
+  }
+  .note-input,
+  .note-detail-page,
+  .not-found-page,
+  .homepage,
+  .add-new-page,
+  .archive-page {
+    padding: 15px;
+  }
+  .note-search {
+    padding: 10px 12px;
+  }
+  .navigation ul {
+    flex-direction: column; /* Navigasi vertikal di ponsel */
+    gap: 5px;
+    align-items: center; /* Pusatkan item vertikal */
+  }
+  .navigation a {
+    width: 80%; /* Link mengisi sebagian besar lebar */
+    text-align: center;
+  }
+  .note-detail__title {
+    font-size: 26px;
+  }
+  .note-detail__action {
+    flex-direction: column; /* Tombol action vertikal di ponsel */
+    gap: 8px;
   }
 }

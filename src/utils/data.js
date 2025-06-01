@@ -1,19 +1,5 @@
 export const getInitialData = () => [
   {
-    id: 1,
-    title: "Babel",
-    body: "Babel merupakan tools open-source yang digunakan untuk mengubah sintaks ECMAScript 2015+ menjadi sintaks yang didukung oleh JavaScript engine versi lama.",
-    archived: false,
-    createdAt: "2022-04-14T04:27:34.572Z",
-  },
-  {
-    id: 2,
-    title: "Functional Component",
-    body: "Functional component merupakan komponen React yang ditulis menggunakan fungsi JavaScript.",
-    archived: false,
-    createdAt: "2022-04-14T04:27:34.572Z",
-  },
-  {
     id: "notes-1",
     title: "Babel",
     body: "Babel merupakan tools open-source yang digunakan untuk mengubah sintaks ECMAScript 2015+ menjadi sintaks yang didukung oleh JavaScript engine versi lama. Babel sering dipakai ketika kita menggunakan sintaks terbaru termasuk sintaks JSX.",
@@ -56,3 +42,17 @@ export const getInitialData = () => [
     archived: false,
   },
 ];
+export const getNote = (id) => {
+  const notes = getInitialData();
+  return notes.find((note) => note.id === id);
+};
+
+export const showFormattedDate = (date) => {
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  return new Date(date).toLocaleDateString("id-ID", options);
+};
